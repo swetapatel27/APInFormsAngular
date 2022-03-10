@@ -1,0 +1,15 @@
+<table class="table">
+    <thead>
+        <th (click)="sort('id')">Id</th>
+        <th (click)="sort('title')">Title</th>
+        <th (click)="sort('body')">Body</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: p } | orderBy:key:reverse">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.body}}</td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
